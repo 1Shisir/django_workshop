@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(120deg, #f39c12, #d35400);
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
 
-        .login-container {
+        .container {
             max-width: 400px;
             width: 100%;
             background: #fff;
@@ -100,19 +100,23 @@
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
+    <div class="container">
+        <h2>Register</h2>
         <form method="POST">
             {% csrf_token %}
             <div class="form-group">
-                <label for="username">Username:</label>
+                <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="form-group">
-                <label for="password">Password:</label>
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit" class="btn">Login</button>
+            <div class="form-group">
+                <label for="re_password">Re-enter Password</label>
+                <input type="password" id="re_password" name="re_password" required>
+            </div>
+            <button type="submit" class="btn">Register</button>
         </form>
     </div>
 </body>

@@ -7,7 +7,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LoginView
-
+from django.contrib.auth.models import User
 
 
 
@@ -86,7 +86,20 @@ def loginn(request):
 @login_required
 def logoutt(request):
     logout(request)
-    return redirect('login')    
+    return redirect('login')  
+
+def register(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        re_password = request.POST.get('re_password')
+        if password == re_password:
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+            return redirect('login')
+        else:
+            return HttpResponse('Password does not match')
+    return render(request, 'register.html')      
 
 
  
