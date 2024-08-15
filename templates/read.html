@@ -6,8 +6,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <head> Hello</head>
-    </div>
+    {% for student in students %}
+    {{student.name}} <br>
+    {{student.faculty}} <br>
+    {{student.roll}} <br>
+    {{student.phone}} <br>
+    {{student.city}} <br>
+    {% endfor %}
 </body>
 </html>

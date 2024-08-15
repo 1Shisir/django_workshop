@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student Info</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #3498db, #8e44ad);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: #fff;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #8e44ad;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 2px solid #bdc3c7;
+            font-size: 1em;
+            color: #333;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            border-color: #8e44ad;
+            box-shadow: 0 0 10px rgba(142, 68, 173, 0.2);
+            outline: none;
+        }
+
+        .form-group input:focus + label, 
+        .form-group select:focus + label {
+            color: #8e44ad;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(120deg, #3498db, #8e44ad);
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            background: linear-gradient(120deg, #2980b9, #7d3c98);
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Update Student Info</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- This automatically renders form fields with their current values -->
+            <button type="submit" class="btn">Update</button>
+        </form>
+    </div>
+</body>
+</html>
