@@ -146,8 +146,8 @@
 
         .add-new {
             position:relative;
-            top: 0px;
-            right: 15px;
+            top: 55px;
+            right: 5px;
             background-color: #e74c3c;
             color: white;
             border: none;
@@ -155,6 +155,12 @@
             cursor: pointer;
             font-size: 1em;
             transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .main{
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .delete-btn:hover {
@@ -185,16 +191,13 @@
             <p>Click to Continue</p>
         </div>
     </div> -->
-    <div>
-        <a href="/create/"><button class ="add-new">Add new student</button></a>
-    </div>
 
     <!-- Main Content -->
     <div class="grid-container" id="content">
         {% for student in students %}
         <div class="student-card">
             <a href="/delete/{{student.id}}"><button class="delete-btn">&times;</button></a>
-            <a href="/update/{{student.id}}"><button class = "update">UP</button></a>
+            <a href="/update/{{student.id}}"><button class = "update">U </button></a>
             <div class="student-name">{{student.name}}</div>
             <div class="student-info"><span>Faculty:</span> {{student.faculty}}</div>
             <div class="student-info"><span>Roll No:</span> {{student.roll}}</div>
@@ -203,6 +206,11 @@
         </div>
         {% endfor %}
 
+    </div>
+    <div class = "main">
+    <div>
+        <a href="/create/"><button class ="add-new">Add new student</button></a>
+    </div>
     </div>
 
     <script>
